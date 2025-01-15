@@ -1,0 +1,60 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+  }
+  
+  .navbar-links li a:hover {
+    color: #00ff00;
+  }
+
+  .navbar-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes the avatar circular */
+    margin-right: 10px;
+    border: 2px solid #00ff00; /* Optional: Add a green border */
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+  }
+
+  .hero-avatar:hover, .navbar-avatar:hover {
+    box-shadow: 0 0 15px #00ff00;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+  }
+  
+  

@@ -1,0 +1,24 @@
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular avatar */
+    border: 3px solid #00ff00; /* Optional: Add a green border */
+    margin-bottom: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+  

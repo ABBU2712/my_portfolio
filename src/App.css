@@ -1,0 +1,128 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #121212, #1a1a1a); /* Dark background */
+  color: #ffffff;
+  animation: backgroundShift 10s ease infinite;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* General Header Styles */
+h1, h2 {
+  text-align: center;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #00ff00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: #00cc00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Project Grid Layout */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+/* Project Card Styles */
+.project-card {
+  padding: 20px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  background-color: #444; /* Bright gray for visibility */
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+  opacity: 1; /* Ensure full visibility */
+}
+
+.project-card-hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ff00;
+}
+
+/* Project Title and Description */
+.project-title {
+  font-size: 1.5rem;
+  color: #00ff00;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #e0e0e0; /* Light gray for better readability */
+  margin: 10px 0;
+}
+
+/* Progress Bar Styles */
+.progress-bar-container {
+  height: 10px;
+  background-color: #555;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #00ff00;
+}
+
+/* Project Badge */
+.project-badge {
+  margin-top: 10px;
+  color: #00ff00;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Header for Projects Section */
+.project-header {
+  text-align: center;
+  font-size: 2rem;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  margin: 20px 0;
+}
