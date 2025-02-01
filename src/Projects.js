@@ -1,80 +1,77 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useState } from "react";
+import "./Projects.css";
 
-// ProgressBar Component
-const ProgressBar = ({ xp }) => {
-  return (
-    <div className="progress-bar-container">
-      <div className="progress-bar-fill" style={{ width: `${xp}%` }}></div>
-    </div>
-  );
-};
+const projects = [
+  {
+    title: "Spotify Multiclass Genre Classification",
+    description: "A music genre classifier using KNN and Random Forest, boosting accuracy by 17%.",
+    techStack: ["Python", "Machine Learning", "Streamlit"],
+    github: "https://github.com/ABBU2712/WINTER-PROJECT",
+    demo: "",
+  },
+  {
+    title: "Distributed Stock Price Prediction",
+    description: "Real-time stock price prediction using ARIMA and LSTM models with AWS.",
+    techStack: ["Python", "TensorFlow", "AWS"],
+    github: "https://github.com/ABBU2712/STOCK-PRICE-PREDICTION",
+    demo: "",
+  },
+  {
+    title: "AI-Based Game",
+    description: "A 3D-rendered game with AI as the opponent.",
+    techStack: ["Python", "Unity", "Reinforcement Learning"],
+    github: "",
+    demo: "",
+  },
+  {
+    title: "Horror Movie Rating Analysis",
+    description: "Identified key factors for low ratings using RoBERTa and LDA.",
+    techStack: ["Python", "NLP", "LDA", "RoBERTa"],
+    github: "",
+    demo: "",
+  },
+];
 
-// Badge Component
-const Badge = ({ xp }) => {
-  let badgeText = 'Beginner';
-  if (xp > 75) badgeText = 'Expert';
-  else if (xp > 50) badgeText = 'Intermediate';
-
-  return <div className="project-badge">{badgeText}</div>;
-};
-
-// Projects Component
 function Projects() {
-  const [hoverIndex, setHoverIndex] = useState(null);
-  const projectRefs = useRef([]);
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const projects = [
-    {
-      name: 'AI-Based Game',
-      description: 'A 3D-rendered AI game where the AI is your opponent.',
-      xp: 80,
-    },
-    {
-      name: 'ML Compiler',
-      description: 'A compiler integrating graph algorithms and advanced AI concepts.',
-      xp: 60,
-    },
-    {
-      name: 'Merge Sort in Assembly',
-      description: 'Implemented merge sort in assembly language for user input.',
-      xp: 50,
-    },
-  ];
-
-  // Animations
-  useEffect(() => {
-    if (projectRefs.current) {
-      gsap.to(projectRefs.current, {
-        opacity: 1, // Set final opacity to 1
-        y: 0, // Reset vertical position
-        duration: 0.5,
-        stagger: 0.2,
-        ease: "power1.out", // Smooth easing for better effect
-      });
-    }
-  }, []);
-  
+  const openModal = (project) => setSelectedProject(project);
+  const closeModal = () => setSelectedProject(null);
 
   return (
-    <div>
-      <h2 className="project-header">Projects</h2>
+    <div className="projects-container">
+      <h1>Projects</h1>
       <div className="project-grid">
         {projects.map((project, index) => (
-          <div
-            ref={(el) => (projectRefs.current[index] = el)}
-            key={index}
-            className={`project-card ${hoverIndex === index ? 'project-card-hover' : ''}`}
-            onMouseEnter={() => setHoverIndex(index)}
-            onMouseLeave={() => setHoverIndex(null)}
-          >
-            <h3 className="project-title">{project.name}</h3>
-            <p className="project-description">{project.description}</p>
-            <Badge xp={project.xp} />
-            <ProgressBar xp={project.xp} />
+          <div key={index} className="project-card" onClick={() => openModal(project)}>
+            <h2>{project.title}</h2>
+            <p>{project.description}</p>
           </div>
         ))}
       </div>
+
+      {selectedProject && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{selectedProject.title}</h2>
+            <p>{selectedProject.description}</p>
+            <p>
+              <strong>Tech Stack:</strong> {selectedProject.techStack.join(", ")}
+            </p>
+            {selectedProject.github && (
+              <a href={selectedProject.github} target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            )}
+            {selectedProject.demo && (
+              <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer">
+                Live Demo
+              </a>
+            )}
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

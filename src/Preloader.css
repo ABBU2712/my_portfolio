@@ -1,0 +1,52 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #121212; /* Dark background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #00ff00;
+    font-size: 3rem;
+    font-weight: bold;
+    z-index: 9999;
+    animation: fadeOut 1s ease-in-out 3s forwards;
+  }
+  
+  .preloader-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    animation: spin 1.5s linear infinite;
+  }
+  
+  Countdown Animation
+  .countdown {
+    font-size: 4rem;
+    animation: pop 0.5s ease-in-out;
+  }
+  
+  
+   .preloader-icon {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+  border-radius: 50%; /* Circular avatar */
+  border: 3px solid #00ff00; /* Optional: Add a green border */
+  animation: fadeInOut 2s infinite ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}

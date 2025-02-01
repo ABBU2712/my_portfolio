@@ -1,0 +1,69 @@
+.projects-container {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .projects-container h1 {
+    font-size: 2.5rem;
+    color: #00ff00;
+    margin-bottom: 30px;
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .project-card {
+    background: #222;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ff00;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+  }
+  
+  .modal-content h2 {
+    color: #00ff00;
+  }
+  
+  .modal-content a {
+    color: #00ff00;
+    text-decoration: none;
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    background-color: #00ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

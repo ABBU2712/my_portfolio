@@ -4,41 +4,27 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Hero from './Hero';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
-import Navbar from './NavBar'; // Uncomment if Navbar is implemented
+import Navbar from './NavBar'; 
+import Preloader from "./Preloader"; // Import Preloader
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading delay
-    const timer = setTimeout(() => setLoading(false), 2000);
+    // Wait for 3 seconds, then remove the preloader
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return (
-      <div style={{ textAlign: 'center', marginTop: '20%' }}>
-        {/* Loading Spinner */}
-        <div
-          style={{
-            width: '50px',
-            height: '50px',
-            border: '5px solid #00ff00',
-            borderTop: '5px solid transparent',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite',
-          }}
-        ></div>
-      </div>
-    );
-  }
-
-  return (
+  return loading ? (
+    <Preloader />  // ✅ Removed the onComplete prop
+  ) : (
     <Router>
       <div className="App">
-        {/* Uncomment the Navbar once implemented */}
         <Navbar />
-        <h1>Welcome to My Portfolio</h1>
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<AboutMe />} />
